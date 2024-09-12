@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "healthitem")
         {
             PlayerHeal(5);
+            Debug.Log("Current health is " + playerCurrentHealth.ToString() + " after healing.");
         }
 
         // Enemy Damage on Collision
@@ -28,6 +29,13 @@ public class Player : MonoBehaviour
             {
                 //Damage();
                 iFramesStart();
+
+                // For debugging the Health and Damage
+                Debug.Log("After damage, iFrames started and the Health is " + playerCurrentHealth.ToString());
+
+                //Default to 1 damage
+                Damage(1);
+
             }
         }
     }
@@ -45,9 +53,10 @@ public class Player : MonoBehaviour
     public void Damage(int damage)
     {
         playerCurrentHealth -= damage;
-        Debug.Log("Health has changed to {0}");
+        Debug.Log("Health has changed to "+playerCurrentHealth.ToString());
         if (playerCurrentHealth <= 0)
         {
+            Debug.Log("Player has died after health reached 0");
             //Implement Game Over Screen;
         }
     }
@@ -56,7 +65,7 @@ public class Player : MonoBehaviour
     public void PlayerHeal(int health)
     {
         playerCurrentHealth += health;
-        Debug.Log("Health has changed to {0}");
+        Debug.Log("Health has changed to "+playerCurrentHealth.ToString());
         if (playerCurrentHealth > playerMaxHealth)
         {
             playerCurrentHealth = playerMaxHealth;
