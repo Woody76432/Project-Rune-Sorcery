@@ -11,12 +11,18 @@ public class CollisionController : MonoBehaviour
     {
         if (collision.gameObject.tag=="enemy")
         {
+            //Destroys both the collided gameObject and also the projectile
             Instantiate(explosionEffect, transform.position, transform.rotation);
             Destroy(collision.gameObject);
             Destroy(projectile);
         }
+        if (collision.gameObject.tag=="player")
+        {
+            //Allows it to pass through player
+        }
         else
         {
+            //Destroys the projectile if it collides with any unspecified collision boxes as a failsafe ( Includes Walls )
             Destroy(projectile);
             Instantiate(explosionEffect, transform.position, transform.rotation);
         }
