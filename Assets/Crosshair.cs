@@ -28,7 +28,8 @@ public class AimAndFire : MonoBehaviour
         float rotationZ = Mathf.Atan2(rotationDifference.y, rotationDifference.x)*Mathf.Rad2Deg;
 
         //Rotates the player to follow the rotationZ, the 2 floats would be for 3D
-        player.transform.rotation = Quaternion.Euler(0.0f,0.0f,rotationZ);
+        //Plus 270 to change the orientation centreing
+        player.transform.rotation = Quaternion.Euler(0.0f,0.0f,rotationZ+270);
 
     }
 

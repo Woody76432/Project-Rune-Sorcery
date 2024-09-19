@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class Player : MonoBehaviour
+public class GameController : MonoBehaviour
 {
     //Player stats Section
     public int playerMaxHealth = 10;
@@ -15,7 +15,6 @@ public class Player : MonoBehaviour
     public GameObject projectile;
 
 
-
     // Healthbar Text stuff
     [SerializeField]
     private TMP_Text _text;
@@ -23,35 +22,18 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
-        //--------------------------------------------------------------------------Item Healing---------------------------------------------------------------------------//
-
-
         // Item Healing
         if (collision.gameObject.tag == "healthitem")
         {
-            if (playerCurrentHealth != playerMaxHealth)
-            {
-                Destroy(collision.gameObject);
-                PlayerHeal(5);
-                Debug.Log("Healed Player");
-            }
-            else
-            {
-                Debug.Log("Health too far, cant heal");
-            }
+            PlayerHeal(5);
+            Debug.Log("Current health is " + playerCurrentHealth.ToString() + " after healing.");
+            Destroy(collision.gameObject);
         }
-        //--------------------------------------------------------------------------Max Health up item---------------------------------------------------------------------------//
-
-
-        // Health up Item
         if (collision.gameObject.tag =="healthupitem")
         {
             playerMaxHealth = playerMaxHealth + 5;
             Destroy(collision.gameObject);  
         }
-
-        //--------------------------------------------------------------------------Enemy Melee damage---------------------------------------------------------------------------//
 
         // Enemy Damage on Collision
         if (collision.gameObject.tag == "enemy")
@@ -70,10 +52,7 @@ public class Player : MonoBehaviour
             }
         }
     }
-
-    //--------------------------------------------------------------------------iFramesStart Function---------------------------------------------------------------------------//
-
-
+    
     // Start iFrames after being hit to prevent instant kills.
     public void iFramesStart()
     {
@@ -81,7 +60,6 @@ public class Player : MonoBehaviour
         // Timer countdown is in the update
     }
 
-    //--------------------------------------------------------------------------Damage Function---------------------------------------------------------------------------//
 
 
     // Damage Function
@@ -97,24 +75,15 @@ public class Player : MonoBehaviour
         }
     }
 
-
-    //--------------------------------------------------------------------------PlayerHeal Function---------------------------------------------------------------------------//
-
     // Heal Function
     public void PlayerHeal(int health)
     {
-        if ((playerCurrentHealth != playerMaxHealth) || ((playerCurrentHealth += health) != playerMaxHealth))
-        {
-            playerCurrentHealth += health;
-            if (playerCurrentHealth > playerMaxHealth)
-            {
-                playerCurrentHealth = playerMaxHealth;
-            }
-        }
-
-
-
+        playerCurrentHealth += health;
         Debug.Log("Health has changed to "+playerCurrentHealth.ToString());
+        if (playerCurrentHealth > playerMaxHealth)
+        {
+            playerCurrentHealth = playerMaxHealth;
+        }
     }
 
 
@@ -129,9 +98,7 @@ public class Player : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        //--------------------------------------------------------------------------Logs and updates respawn timer---------------------------------------------------------------------------//
-
+    {   
         // iFrames Timer
         if (iFrames!=0)
         {
@@ -144,20 +111,17 @@ public class Player : MonoBehaviour
         }
 
 
-        //--------------------------------------------------------------------------UI Health Text changing---------------------------------------------------------------------------//
 
         // Update Health text
 
         _text.text = "Health : " + playerCurrentHealth.ToString()+" / "+playerMaxHealth.ToString();
 
-
-        //--------------------------------------------------------------------------Projectile Firing---------------------------------------------------------------------------//
-
-        // Fire projectile
+        // Fire Projectile
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Instantiate(projectile, transform.position, transform.rotation);
         }
+
 
 
 

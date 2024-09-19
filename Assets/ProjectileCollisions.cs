@@ -6,17 +6,18 @@ public class CollisionController : MonoBehaviour
 {
     public GameObject projectile;
     public Rigidbody2D explosionEffect;
+    public GameObject player;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag=="enemy")
+        if (collision.gameObject.tag == "enemy")
         {
             //Destroys both the collided gameObject and also the projectile
             Instantiate(explosionEffect, transform.position, transform.rotation);
             Destroy(collision.gameObject);
             Destroy(projectile);
         }
-        if (collision.gameObject.tag=="player")
+        if (collision.gameObject.tag == "player")
         {
             //Allows it to pass through player
         }
@@ -28,6 +29,8 @@ public class CollisionController : MonoBehaviour
         }
     }
 
+   // public static void IgnoreLayerCollision(int layer1, int layer2, bool ignore);
+
 
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -37,6 +40,11 @@ public class CollisionController : MonoBehaviour
     private void OnCollisionStay2D(Collision2D collision)
     {
         
+    }
+    void Start()
+    {
+       
+
     }
 
 }

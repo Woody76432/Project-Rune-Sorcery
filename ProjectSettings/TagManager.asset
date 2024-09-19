@@ -8,14 +8,15 @@ TagManager:
   - walls
   - healthitem
   - player
+  - healthupitem
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - player
   - Water
   - UI
-  - 
+  - projectile
   - 
   - 
   - 

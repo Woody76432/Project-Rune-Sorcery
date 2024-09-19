@@ -7,7 +7,7 @@ public class ProMove : MonoBehaviour
 
     // Initiate Variables and Classes Here
     public Rigidbody2D projectile;
-    public int moveSpeedProjectile = 16;
+    public float moveSpeedProjectile = 25f;
     float timeout = 0;
 
 
@@ -15,14 +15,14 @@ public class ProMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        projectile = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
         timeout = timeout+Time.deltaTime;
-        projectile.velocity = Vector2.up*moveSpeedProjectile;
+        projectile.velocity = transform.up*moveSpeedProjectile;
         if (timeout > 5 ) 
         {
             Destroy(gameObject);
