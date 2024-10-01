@@ -26,7 +26,7 @@ public class ProMove : MonoBehaviour
         if (timeout > 5 ) 
         {
             Destroy(gameObject);
-            Debug.Log("Laser Destroyed!");
+            Debug.Log("Projectile Destroyed!");
         }
     }
 }

@@ -7,11 +7,11 @@ using TMPro;
 public class Player : MonoBehaviour
 {
     //Player stats Section
-    public int playerMaxHealth = 10;
-    public int playerCurrentHealth = 5;
-    public int playerDamage = 1;
-    public float iFrames = 0;
-    public float iFramesMax = 1;
+    public  int playerMaxHealth = 10;
+    public  int playerCurrentHealth = 5;
+    public  int playerDamage = 1;
+    public  float iFrames = 0;
+    public  float iFramesMax = 1;
     public GameObject projectile;
 
 
@@ -149,17 +149,6 @@ public class Player : MonoBehaviour
         // Update Health text
 
         _text.text = "Health : " + playerCurrentHealth.ToString()+" / "+playerMaxHealth.ToString();
-
-
-        //--------------------------------------------------------------------------Projectile Firing---------------------------------------------------------------------------//
-
-        // Fire projectile
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Instantiate(projectile, transform.position, transform.rotation);
-        }
-
-
 
     }
 }

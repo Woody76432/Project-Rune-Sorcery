@@ -9,7 +9,7 @@ public class BillyStickMove : MonoBehaviour
     public Rigidbody2D player;
 
     //Default Speed is 1
-    public float moveSpeed = 4.0f;
+    public static float moveSpeed = 4.0f;
     float speedX,speedY;
 
     //Start is called before the first frame update

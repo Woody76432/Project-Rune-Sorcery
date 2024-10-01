@@ -3,7 +3,11 @@ guid: b8ccbfc52d3d0084fb248337b2d5c9c1
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - ability1Mask: {instanceID: 0}
+  - ability2Mask: {instanceID: 0}
+  - ability3Mask: {instanceID: 0}
+  - grenade: {fileID: 7656794751995501332, guid: a410ba9b5c808a64cb41c7d1c4edf0f2, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

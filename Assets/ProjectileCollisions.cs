@@ -6,7 +6,6 @@ public class CollisionController : MonoBehaviour
 {
     public GameObject projectile;
     public Rigidbody2D explosionEffect;
-    public GameObject player;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -17,10 +16,6 @@ public class CollisionController : MonoBehaviour
             Destroy(collision.gameObject);
             Destroy(projectile);
         }
-        if (collision.gameObject.tag == "player")
-        {
-            //Allows it to pass through player
-        }
         else
         {
             //Destroys the projectile if it collides with any unspecified collision boxes as a failsafe ( Includes Walls )
@@ -28,23 +23,4 @@ public class CollisionController : MonoBehaviour
             Instantiate(explosionEffect, transform.position, transform.rotation);
         }
     }
-
-   // public static void IgnoreLayerCollision(int layer1, int layer2, bool ignore);
-
-
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        
-    }
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        
-    }
-    void Start()
-    {
-       
-
-    }
-
 }

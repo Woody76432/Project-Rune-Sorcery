@@ -5,9 +5,9 @@ using UnityEngine;
 public class Abilities : MonoBehaviour
 {
     // Set to whatever the position of "Entirely off the ability icon" is, anchored to ability icons so pos X and Y are at 0 for the middle.
-    private float ability1Cooldown = -75f;
-    private float ability2Cooldown = -75f;
-    private float ability3Cooldown = -75f;
+    public static float ability1Cooldown = -75f;
+    public static float ability2Cooldown = -75f;
+    public static float ability3Cooldown = -75f;
 
     public GameObject ability1Mask;
     public GameObject ability2Mask;
@@ -63,6 +63,7 @@ public class Abilities : MonoBehaviour
             if (ability1Cooldown < -75f)
             {
                 ability1Cooldown = -75f;
+
             }
         }
 

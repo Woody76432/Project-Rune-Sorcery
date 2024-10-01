@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using static System.Net.Mime.MediaTypeNames;
 
 public class Timer : MonoBehaviour
 {
@@ -10,7 +11,8 @@ public class Timer : MonoBehaviour
     [SerializeField]
     private TMP_Text _text;
 
-    private float timer = 0f;
+    float timer = 0f;
+    int minTimer = 0;
 
 
     // Start is called before the first frame update
@@ -23,7 +25,13 @@ public class Timer : MonoBehaviour
     void Update()
     {
         timer = timer + Time.deltaTime;
-        _text.text = "Time : " + timer.ToString();
+        if (timer >= 60)
+        {
+            timer = 0;
+            minTimer++;
+        }
+        // String interpolation, Prepend it with a $"text{anyvariable}xy" and it will add in any variable, similar to all the "lorem ipsum{0} dolco"+var kinda stuff 
+        _text.text = $"Timer - {minTimer} : {timer:#00.00}";
 
     }
 }
