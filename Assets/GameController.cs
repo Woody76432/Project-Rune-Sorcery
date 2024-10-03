@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     public  float iFrames = 0;
     public  float iFramesMax = 1;
     public GameObject projectile;
-
+    public static int score = 0;
 
 
     // Healthbar Text stuff
@@ -48,7 +48,8 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag =="healthupitem")
         {
             playerMaxHealth = playerMaxHealth + 5;
-            Destroy(collision.gameObject);  
+            Destroy(collision.gameObject);
+            SetScore(50);
         }
 
         //--------------------------------------------------------------------------Enemy Melee damage---------------------------------------------------------------------------//
@@ -66,7 +67,6 @@ public class Player : MonoBehaviour
 
                 //Default to 1 damage
                 Damage(1);
-
             }
         }
     }
@@ -89,6 +89,7 @@ public class Player : MonoBehaviour
     {
         playerCurrentHealth -= damage;
         Debug.Log("Health has changed to "+playerCurrentHealth.ToString());
+        SetScore(-50);
         if (playerCurrentHealth <= 0)
         {
             Debug.Log("Player has died after health reached 0");
@@ -116,7 +117,14 @@ public class Player : MonoBehaviour
 
         Debug.Log("Health has changed to "+playerCurrentHealth.ToString());
     }
-
+    public static void SetScore(int scoreToAdd)
+    {
+        score += scoreToAdd;
+    }
+    public static int GetScore()
+    {
+        return score;
+    }
 
 
 

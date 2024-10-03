@@ -15,8 +15,10 @@ public class CollisionController : MonoBehaviour
             Instantiate(explosionEffect, transform.position, transform.rotation);
             Destroy(collision.gameObject);
             Destroy(projectile);
+            Player.SetScore(250);
         }
         else
+
         {
             //Destroys the projectile if it collides with any unspecified collision boxes as a failsafe ( Includes Walls )
             Destroy(projectile);
