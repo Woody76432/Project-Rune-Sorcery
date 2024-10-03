@@ -28,7 +28,7 @@ public class Timer : MonoBehaviour
         {
             timer = 0;
             minTimer++;
-            Player.SetScore(1000);
+            Player.SetScore(1000);   
         }
         // String interpolation, Prepend it with a $"text{anyvariable}xy" and it will add in any variable, similar to all the "lorem ipsum{0} dolco"+var kinda stuff 
         _text.text = $"Timer - {minTimer} : {timer:#00.00}";

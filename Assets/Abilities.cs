@@ -8,6 +8,7 @@ public class Abilities : MonoBehaviour
     public static float ability1Cooldown = -75f;
     public static float ability2Cooldown = -75f;
     public static float ability3Cooldown = -75f;
+   
 
     public GameObject ability1Mask;
     public GameObject ability2Mask;
@@ -26,7 +27,6 @@ public class Abilities : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Ability Q
         if (Input.GetKeyDown(KeyCode.Q))
         {
             if (ability1Cooldown==-75f)
@@ -51,9 +51,7 @@ public class Abilities : MonoBehaviour
                 ability3Cooldown = 0f;
             }
         }
-        // Ability E
-
-        // Ability F
+ 
 
         // Move the masks into its pos X of cooldown
         if (ability1Cooldown!= -75f)
