@@ -13,6 +13,8 @@ public class Abilities : MonoBehaviour
     public static float ability2CooldownMultiplier = 2;
     public static float ability3CooldownMultiplier = 3;
 
+    public GameObject grenade;
+
     // Setters for other scripts to influence cooldown timers -----------------------------------------------------------------------------------------------------------------
     public static void SetAbility1CooldownMultiplier(int multiplier)
     {
@@ -96,6 +98,7 @@ public class Abilities : MonoBehaviour
             if (ability1Cooldown < -75f)
             {
                 ability1Cooldown = -75f;
+                Instantiate(grenade, transform.position, transform.rotation);
 
             }
         }
@@ -119,14 +122,5 @@ public class Abilities : MonoBehaviour
                 ability3Cooldown = -75f;
             }
         }
-
-        //Testing
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            SetAbility1CooldownMultiplier(200);
-            SetAbility2CooldownMultiplier(40);
-            SetAbility3CooldownMultiplier(47);
-        }
-
     }
 }

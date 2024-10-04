@@ -9,6 +9,7 @@ TagManager:
   - healthitem
   - player
   - healthupitem
+  - portal
   layers:
   - Default
   - TransparentFX

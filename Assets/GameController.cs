@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
         {
             playerMaxHealth = playerMaxHealth + 5;
             Destroy(collision.gameObject);
-            SetScore(50);
+            SetScore(50);   
         }
 
         //--------------------------------------------------------------------------Enemy Melee damage---------------------------------------------------------------------------//
@@ -89,7 +89,7 @@ public class Player : MonoBehaviour
     {
         playerCurrentHealth -= damage;
         Debug.Log("Health has changed to "+playerCurrentHealth.ToString());
-        SetScore(-50);
+        SetScore(-15);
         if (playerCurrentHealth <= 0)
         {
             Debug.Log("Player has died after health reached 0");
