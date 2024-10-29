@@ -9,7 +9,7 @@ public class BillyStickMove : MonoBehaviour
     public Rigidbody2D player;
 
     //Default Speed is 1
-    public static float moveSpeed = 4.0f;
+    public static float moveSpeed = 6.50f;
     float speedX,speedY;
 
     //Start is called before the first frame update
@@ -23,17 +23,8 @@ public class BillyStickMove : MonoBehaviour
     {
 
         // Movement Stuff
-        if (Input.GetKey(KeyCode.LeftShift)) 
-        {
-            speedX = Input.GetAxisRaw("Horizontal") * (moveSpeed*2);
-            speedY = Input.GetAxisRaw("Vertical") * (moveSpeed*2);
-            player.velocity = new Vector2(speedX, speedY);
-        }
-        else
-        {
-            speedX = Input.GetAxisRaw("Horizontal") * moveSpeed;
-            speedY = Input.GetAxisRaw("Vertical") * moveSpeed;
-            player.velocity = new Vector2(speedX, speedY);
-        }
+        speedX = Input.GetAxisRaw("Horizontal") * moveSpeed;
+        speedY = Input.GetAxisRaw("Vertical") * moveSpeed;
+        player.velocity = new Vector2(speedX, speedY);
     }
 }

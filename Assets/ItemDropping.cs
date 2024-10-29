@@ -11,13 +11,13 @@ public class ItemDropping : MonoBehaviour
 
 
 
-    public static void SpawnItem(var position, var rotation)
+    public static void SpawnItem(Transform transform, Transform rotation)
     {
         int randItem = Random.Range(0, 1);
            
         if (randItem==0)
         {
-            Instantiate(healthUpItem, position, rotation);
+            Instantiate(healthUpItem, transform, rotation);
         }
     }
 }

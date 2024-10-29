@@ -6,7 +6,6 @@ public class AiChaseAndShoot : MonoBehaviour
 {
 
     public GameObject player;
-    public Transform playerTransform;
     public float moveSpeed;
     public float shootCooldown = 0;
     public float distance;
@@ -32,13 +31,6 @@ public class AiChaseAndShoot : MonoBehaviour
         if (isTargeting==true)
         {
             shootCooldown -= Time.deltaTime;
-            // Repurposed From rotate to cursor
-            // Trigonometry to calculate the difference between where the mouse is to where the player is
-            Vector3 rotationDifference = this.transform.position - player.transform.position;
-            float rotationZ = Mathf.Atan2(rotationDifference.y, rotationDifference.x) * Mathf.Rad2Deg;
-            //Rotates the enemy to follow the rotationZ, the 2 floats would be for 3D
-            //Plus 90 to change the orientation centering
-            this.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ + 90);
         }
 
         
@@ -57,12 +49,6 @@ public class AiChaseAndShoot : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, -(moveSpeed * 1.5f) * Time.deltaTime);
             isTargeting = false;
-
-            Vector3 rotationDifference = this.transform.position - player.transform.position;
-            float rotationZ = Mathf.Atan2(rotationDifference.y, rotationDifference.x) * Mathf.Rad2Deg;
-            //Rotates the enemy to follow the rotationZ, the 2 floats would be for 3D
-            //Plus 90 to change the orientation centering
-            this.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ+180 + 90);
         }
         // Disables Chasing
         if (distance>10)
@@ -78,7 +64,7 @@ public class AiChaseAndShoot : MonoBehaviour
                 {
                     shootCooldown = shootSpeed;
                     Debug.Log("Fired Ball at player");
-                    Instantiate(projectile,projectileSpawnLocation.transform.position, this.transform.rotation);
+                    Instantiate(projectile,projectileSpawnLocation.transform.position, projectileSpawnLocation.transform.rotation);
 
                 }
             }
