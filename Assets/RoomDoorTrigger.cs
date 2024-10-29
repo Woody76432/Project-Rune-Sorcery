@@ -34,7 +34,7 @@ public class RoomDoorTrigger : MonoBehaviour
         if (collision.gameObject.tag == "enemy")
         {
             enemiesInTrigger = true;
-            enemieTimeInTrigger = 0;
+            enemyTimeOutTrigger = 0;
         }
     }
 
