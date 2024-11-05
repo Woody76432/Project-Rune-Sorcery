@@ -24,12 +24,12 @@ public class AimAndFire : MonoBehaviour
 
 
         // Trigonometry to calculate the difference between where the mouse is to where the player is
-        Vector3 rotationDifference = cursor - player.transform.position;
-        float rotationZ = Mathf.Atan2(rotationDifference.y, rotationDifference.x)*Mathf.Rad2Deg;
+        //Vector3 rotationDifference = cursor - player.transform.position;
+        //float rotationZ = Mathf.Atan2(rotationDifference.y, rotationDifference.x)*Mathf.Rad2Deg;
 
         //Rotates the player to follow the rotationZ, the 2 floats would be for 3D
         //Plus 270 to change the orientation centreing
-        player.transform.rotation = Quaternion.Euler(0.0f,0.0f,rotationZ+270);
+        //player.transform.rotation = Quaternion.Euler(0.0f,0.0f,rotationZ+270);
 
     }
 

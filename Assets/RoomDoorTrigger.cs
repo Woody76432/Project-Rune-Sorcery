@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,9 +8,7 @@ public class RoomDoorTrigger : MonoBehaviour
     public GameObject door1;
     public GameObject door2;
     public GameObject door3;
-    public GameObject door4;
-    public GameObject door5;
-    public GameObject door6;
+    // Add more doors here if you need them, make sure to add them elsewhere too
 
     public bool enemiesInTrigger = true;
     public bool playerInTrigger = false;
@@ -35,6 +34,7 @@ public class RoomDoorTrigger : MonoBehaviour
         {
             enemiesInTrigger = true;
             enemyTimeOutTrigger = 0;
+            Debug.Log("Enemy is in room");
         }
     }
 
@@ -42,20 +42,22 @@ public class RoomDoorTrigger : MonoBehaviour
     {
         if (collision.gameObject.tag == "enemy")
         {
-            enemyTimeOutTrigger += timeInTrigger.deltaTime;
+            enemiesInTrigger = false;
         }
     }
 
     void Update()
     {
-        if (enemiesInTrigger == false&&enemyTimeOutTrigger>0.5)
+        if (enemiesInTrigger==false) 
+        {
+            enemyTimeOutTrigger += Time.deltaTime;
+        }
+        if (enemiesInTrigger == false&&enemyTimeOutTrigger>1)
         {
             door1.SetActive(false);
             door2.SetActive(false);
             door3.SetActive(false);
-            door4.SetActive(false);
-            door5.SetActive(false);
-            door6.SetActive(false);
+            Destroy(gameObject);
         }
         if (playerInTrigger == true)
         {
@@ -67,9 +69,6 @@ public class RoomDoorTrigger : MonoBehaviour
                     door1.SetActive(true);
                     door2.SetActive(true);
                     door3.SetActive(true);
-                    door4.SetActive(true);
-                    door5.SetActive(true);
-                    door6.SetActive(true);
                     triggerActivated = true;
                 }
 

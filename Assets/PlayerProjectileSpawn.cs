@@ -6,6 +6,7 @@ public class ProSpawn : MonoBehaviour
 {
     public GameObject projectile;
     public GameObject grenade;
+    public GameObject projectileSpawnLocation;
 
 
     // Start is called before the first frame update
@@ -19,13 +20,13 @@ public class ProSpawn : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0)) 
         {
-            Instantiate(projectile,transform.position,transform.rotation);
+            Instantiate(projectile,projectileSpawnLocation.transform.position,projectileSpawnLocation.transform.rotation);
         }
         if (Input.GetKeyDown(KeyCode.Q))
         {
             if (Abilities.ability1Cooldown == -75f)
             {
-                Instantiate(grenade, transform.position, transform.rotation);
+                Instantiate(grenade, projectileSpawnLocation.transform.position, projectileSpawnLocation.transform.rotation);
             }
         }
     }

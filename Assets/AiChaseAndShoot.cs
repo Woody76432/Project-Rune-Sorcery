@@ -39,13 +39,14 @@ public class AiChaseAndShoot : MonoBehaviour
         distance = Vector2.Distance(transform.position, player.transform.position);
         Vector2 direction = player.transform.position - transform.position;
 
-        if (distance < 8 && distance >4)
+        // If distance is between these move towards and fire
+        if (distance < 8 && distance >3)
         {
             transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, (moveSpeed * 2f) * Time.deltaTime);
             isTargeting = true;
         }
         //Run Away
-        if (distance < 3)
+        if (distance < 2.50000000000000000001)
         {
             transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, -(moveSpeed * 1.5f) * Time.deltaTime);
             isTargeting = false;

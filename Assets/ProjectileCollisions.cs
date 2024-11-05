@@ -6,6 +6,7 @@ public class CollisionController : MonoBehaviour
 {
     public GameObject projectile;
     public Rigidbody2D explosionEffect;
+    Quaternion defaultRotation = new Quaternion(0.0f,0.0f,0.0f,0.0f);
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -15,6 +16,7 @@ public class CollisionController : MonoBehaviour
             Instantiate(explosionEffect, transform.position, transform.rotation);
             Destroy(collision.gameObject);
             Destroy(projectile);
+            ItemDropping.SpawnItem(transform.position, defaultRotation);
             Player.SetScore(250);
         }
         else
@@ -22,7 +24,7 @@ public class CollisionController : MonoBehaviour
         {
             //Destroys the projectile if it collides with any unspecified collision boxes as a failsafe ( Includes Walls )
             Destroy(projectile);
-            Instantiate(explosionEffect, transform.position, transform.rotation);
+            Instantiate(explosionEffect, transform.position,transform.rotation);
         }
     }
 }
