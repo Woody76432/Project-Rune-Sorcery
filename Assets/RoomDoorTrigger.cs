@@ -34,7 +34,6 @@ public class RoomDoorTrigger : MonoBehaviour
         {
             enemiesInTrigger = true;
             enemyTimeOutTrigger = 0;
-            Debug.Log("Enemy is in room");
         }
     }
 

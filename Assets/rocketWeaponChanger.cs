@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class bowWeaponChanger : MonoBehaviour
+public class rocketWeaponChanger : MonoBehaviour
 {
     public GameObject rocketLauncher;
     public GameObject rifle;
@@ -16,10 +16,10 @@ public class bowWeaponChanger : MonoBehaviour
         timerToPickup -= Time.deltaTime;
     }
 
-    
+
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (timerToPickup<0)
+        if (timerToPickup < 0)
         {
             if (collision.gameObject.tag == "player")
             {
@@ -29,13 +29,13 @@ public class bowWeaponChanger : MonoBehaviour
                     case "rifle":
                         Instantiate(rifle, gameObject.transform.position, gameObject.transform.rotation);
                         break;
-                    case "rocket launcher":
-                        Instantiate(rocketLauncher, gameObject.transform.position, gameObject.transform.rotation);
+                    case "bow":
+                        Instantiate(bow, gameObject.transform.position, gameObject.transform.rotation);
                         break;
                 }
 
-                ProSpawn.SetWeaponString("bow");
-                Destroy(bow);
+                ProSpawn.SetWeaponString("rocket launcher");
+                Destroy(rocketLauncher);
 
             }
         }

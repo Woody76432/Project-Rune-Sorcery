@@ -19,6 +19,10 @@ public class ProSpawn : MonoBehaviour
         // Also returns the weapon name incase I need it later for anything
         return weaponName;
     }
+    public static string GetWeaponString()
+    {
+        return weaponName;
+    }
 
     void Update()
     {
@@ -29,18 +33,21 @@ public class ProSpawn : MonoBehaviour
                 case "null":
                     Debug.Log("Player has no weapon so cant spawn a projectile");
                     break;
+
                 case "bow":
-                    // Instantiate 3 different arrows at the different projectile spawn positions
-                    //Instantiate(arrows, projectileSpawnLocation.transform.position, projectileSpawnLocation.transform.rotation);
+                    Instantiate(arrows, projectileSpawnLocation.transform.position, projectileSpawnLocation.transform.rotation);
+                    Instantiate(arrows, arrowSpawnPosition2.transform.position, arrowSpawnPosition2.transform.rotation);
+                    Instantiate(arrows, arrowSpawnPosition3.transform.position, arrowSpawnPosition3.transform.rotation);
+
                     Debug.Log("Fire Arrows");
                     break;
+
                 case "rifle":
-                    // Instantiate 1 laser at projectile spawn location
                     Instantiate(lasers, projectileSpawnLocation.transform.position, projectileSpawnLocation.transform.rotation);
                     Debug.Log("Fire Arrows");
                     break;
+
                 case "rocket launcher":
-                    //Instantiate 1 rocket projectile that can go through multiple enemies and flys erratically before deleting itself
                     Instantiate(rockets, projectileSpawnLocation.transform.position, projectileSpawnLocation.transform.rotation);
                     Debug.Log("fire Rockets");
                     break;
