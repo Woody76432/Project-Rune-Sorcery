@@ -14,11 +14,15 @@ public class Player : MonoBehaviour
     public  float iFramesMax = 1;
     public GameObject projectile;
     public static int score = 0;
+    public Rigidbody2D player;
+    public float moveSpeed = 6.50f;
+    float speedX, speedY;
 
 
     // Healthbar Text stuff
     [SerializeField]
     private TMP_Text _text;
+
 
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -51,7 +55,16 @@ public class Player : MonoBehaviour
             Destroy(collision.gameObject);
             SetScore(50);   
         }
+        //--------------------------------------------------------------------------Speed Up item--------------------------------------------------------------------------------//
 
+
+        // Speed up Item
+        if (collision.gameObject.tag =="speedupitem")
+        {
+            moveSpeed += 1.33f;
+            Destroy(collision.gameObject);
+            SetScore(25);
+        }
         //--------------------------------------------------------------------------Enemy Melee damage---------------------------------------------------------------------------//
 
         // Enemy Damage on Collision
@@ -132,12 +145,27 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        // Movement Stuff
+        speedX = Input.GetAxisRaw("Horizontal") * moveSpeed;
+        speedY = Input.GetAxisRaw("Vertical") * moveSpeed;
+        player.velocity = new Vector2(speedX, speedY);
+
+
+
+
+
+
+
+
+
+
         //--------------------------------------------------------------------------Logs and updates respawn timer---------------------------------------------------------------------------//
 
         // iFrames Timer

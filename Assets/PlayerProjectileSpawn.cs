@@ -12,13 +12,13 @@ public class ProSpawn : MonoBehaviour
     public GameObject arrowSpawnPosition3;
 
     public static string weaponName = "null";
+    public string publicWeponName = weaponName;
 
-    public static string SetWeaponString(string newWeaponString)
+    public static void SetWeaponString(string newWeaponString)
     {
         weaponName = newWeaponString;  
-        // Also returns the weapon name incase I need it later for anything
-        return weaponName;
     }
+
     public static string GetWeaponString()
     {
         return weaponName;
@@ -26,8 +26,12 @@ public class ProSpawn : MonoBehaviour
 
     void Update()
     {
+        publicWeponName = weaponName;
+
         if (Input.GetKeyDown(KeyCode.Mouse0)==true)
         {
+            // Determine what kind of weapon the player should fire based on a string that can be updated by the weapon through a function
+
             switch (weaponName)
             {
                 case "null":
@@ -38,22 +42,19 @@ public class ProSpawn : MonoBehaviour
                     Instantiate(arrows, projectileSpawnLocation.transform.position, projectileSpawnLocation.transform.rotation);
                     Instantiate(arrows, arrowSpawnPosition2.transform.position, arrowSpawnPosition2.transform.rotation);
                     Instantiate(arrows, arrowSpawnPosition3.transform.position, arrowSpawnPosition3.transform.rotation);
-
                     Debug.Log("Fire Arrows");
                     break;
 
                 case "rifle":
                     Instantiate(lasers, projectileSpawnLocation.transform.position, projectileSpawnLocation.transform.rotation);
-                    Debug.Log("Fire Arrows");
+                    Debug.Log("Fire Lasers");
                     break;
 
                 case "rocket launcher":
                     Instantiate(rockets, projectileSpawnLocation.transform.position, projectileSpawnLocation.transform.rotation);
-                    Debug.Log("fire Rockets");
+                    Debug.Log("Fire Rockets");
                     break;
             }
         }
-        // Determine what kind of weapon the player should fire based on a string that can be updated by the weapon through a function
-
     }
 }

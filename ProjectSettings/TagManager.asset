@@ -11,6 +11,7 @@ TagManager:
   - healthupitem
   - portal
   - weapon_bow
+  - speedupitem
   layers:
   - Default
   - TransparentFX
