@@ -137,7 +137,7 @@ MonoBehaviour:
   distance: 0
   isTargeting: 0
   shootSpeed: 2
-  projectile: {fileID: 4303767046794229075, guid: 5532644acbab98546a383ceaf71726d4, type: 3}
+  projectile: {fileID: 3731403248152267114, guid: b57cef37487637b48b346497378f9ee6, type: 3}
   projectileSpawnLocation: {fileID: 2466034812246357893}
   ghostWizard: {fileID: 5335442982694146347}
 --- !u!50 &6967516142192037730

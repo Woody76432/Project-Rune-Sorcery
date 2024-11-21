@@ -64,7 +64,7 @@ public class Player : MonoBehaviour
             Destroy(collision.gameObject);
             SetScore(25);
         }
-        //--------------------------------------------------------------------------Enemy Melee damage---------------------------------------------------------------------------//
+        //--------------------------------------------------------------------------Enemy damage---------------------------------------------------------------------------//
 
         // Enemy Damage on Collision
         if (collision.gameObject.tag == "enemy")
@@ -94,6 +94,10 @@ public class Player : MonoBehaviour
                 //Default to 1 damage
                 Damage(3);
             }
+        }
+        if (collision.gameObject.tag =="enemyProjectile")
+        {
+            Damage(1);
         }
     }
 

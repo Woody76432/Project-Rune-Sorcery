@@ -13,7 +13,7 @@ public class PinkOneAI : MonoBehaviour
     public GameObject projectile;
     public float fireRate;
     public int pinkOneHealth=100;
-
+    public float minionSpawnCooldown = 3;
     public GameObject meleeMinion;
     public GameObject rangedMinion;
 
@@ -22,7 +22,7 @@ public class PinkOneAI : MonoBehaviour
         moveSpeed = 2;
     }
 
-    public void PinkOneDamage(int damage)
+    public void Damage(int damage)
     {
         pinkOneHealth-=damage;
         Debug.Log(pinkOneHealth.ToString());
@@ -87,17 +87,22 @@ public class PinkOneAI : MonoBehaviour
                     transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, moveSpeed * Time.deltaTime);
                 }
             }
-
-            int randInt = Random.Range(0, 10);
-            if (randInt < 5)
+            if (minionSpawnCooldown<=0)
             {
-                Instantiate(meleeMinion, minionSpawnArea.transform.position, minionSpawnArea.transform.rotation);
+                int randInt = Random.Range(0, 10);
+                if (randInt < 5)
+                {
+                    Instantiate(meleeMinion, minionSpawnArea.transform.position, minionSpawnArea.transform.rotation);
+                    minionSpawnCooldown = 3;
+                }
+                else
+                {
+                    Instantiate(rangedMinion, minionSpawnArea.transform.position, minionSpawnArea.transform.rotation);
+                    minionSpawnCooldown = 3;
 
+                }
             }
-            else 
-            {
-                Instantiate(rangedMinion, minionSpawnArea.transform.position, minionSpawnArea.transform.rotation);
-            }
+
             // Also spawn minions
         }
         if (pinkOneHealth <= 0)
@@ -105,12 +110,13 @@ public class PinkOneAI : MonoBehaviour
             // Die
             Destroy(gameObject);
         }
+        minionSpawnCooldown-=Time.deltaTime;    
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag=="projectile")
         {
-            PinkOneDamage(1);
+            Damage(1);
         }
     }
 }
