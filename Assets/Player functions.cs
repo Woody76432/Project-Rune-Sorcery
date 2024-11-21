@@ -18,7 +18,6 @@ public class Player : MonoBehaviour
     public float moveSpeed = 6.50f;
     float speedX, speedY;
 
-
     // Healthbar Text stuff
     [SerializeField]
     private TMP_Text _text;
@@ -80,6 +79,20 @@ public class Player : MonoBehaviour
 
                 //Default to 1 damage
                 Damage(1);
+            }
+        }
+        if (collision.gameObject.tag=="boss")
+        {
+            if (iFrames==0)
+            {
+                //Damage();
+                iFramesStart();
+
+                // For debugging the Health and Damage
+                Debug.Log("After damage, iFrames started and the Health is " + playerCurrentHealth.ToString());
+
+                //Default to 1 damage
+                Damage(3);
             }
         }
     }

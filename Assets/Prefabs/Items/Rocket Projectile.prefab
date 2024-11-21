@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7209992707359327462}
   m_Layer: 0
   m_Name: Rocket Projectile
-  m_TagString: Untagged
+  m_TagString: projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,6 +102,7 @@ MonoBehaviour:
   moveSpeed: 6
   rocket: {fileID: 6462494918722395733}
   explosionEffect: {fileID: 617552644106924591, guid: 3b4085bde9ff7e349b4d5ba1c8a40da6, type: 3}
+  randInt: 0
 --- !u!50 &6462494918722395733
 Rigidbody2D:
   serializedVersion: 4

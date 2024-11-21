@@ -12,60 +12,105 @@ public class PinkOneAI : MonoBehaviour
     public GameObject projectileSpawnArea;
     public GameObject projectile;
     public float fireRate;
-    public int phase = 0;
-    public static int staticPinkOneHealth=1000;
-    public int pinkOneHealth=1000;
+    public int pinkOneHealth=100;
+
+    public GameObject meleeMinion;
+    public GameObject rangedMinion;
 
     void Start()
     {
         moveSpeed = 2;
     }
 
-    public static void PinkOneDamage(int damage)
+    public void PinkOneDamage(int damage)
     {
-        staticPinkOneHealth-=damage;
+        pinkOneHealth-=damage;
+        Debug.Log(pinkOneHealth.ToString());
     }
 
 
     // Update is called once per frame
     void Update()
     {
-
-        pinkOneHealth = staticPinkOneHealth;
-        if (pinkOneHealth>=666)
+        if (pinkOneHealth>=66)
         {
+            moveSpeed = 3;
             //Moves the entity this script is on towards the Player
             distance = Vector2.Distance(transform.position, player.transform.position);
             Vector2 direction = player.transform.position - transform.position;
 
-            if (distance < 5)
+            if (distance < 10)
             {
                 transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, moveSpeed * Time.deltaTime);
             }
 
         }
-        if (pinkOneHealth > 333 && pinkOneHealth < 666)
+        if (pinkOneHealth > 33 && pinkOneHealth < 66)
         {
             // Wizard type AI, move away and shoot
-            moveSpeed = 1;
+            moveSpeed = 2;
             distance = Vector2.Distance(transform.position, player.transform.position);
             Vector2 direction = player.transform.position - transform.position;
 
+            // If the player is within a 10 unit range :
             if (distance>0&&distance<10)
             {
-                transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, -moveSpeed * Time.deltaTime);
+                // If within range AND too close :
+                if (distance > 0 && distance < 3)
+                {
+                    transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, -moveSpeed * Time.deltaTime);
+                }
+                // If within range AND too far :
+                if (distance > 4 &&distance < 10)
+                {
+                    transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, moveSpeed * Time.deltaTime);
+                }
+            }
+        }
+        if (pinkOneHealth < 33 && pinkOneHealth > 0)
+        {
+            moveSpeed = 4;
+            distance = Vector2.Distance(transform.position, player.transform.position);
+            Vector2 direction = player.transform.position - transform.position;
+
+            // If the player is within a 10 unit range :
+            if (distance > 0 && distance < 10)
+            {
+                // If within range AND too close :
+                if (distance > 0 && distance < 3)
+                {
+                    transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, -moveSpeed * Time.deltaTime);
+                }
+                // If within range AND too far :
+                if (distance > 4 && distance < 10)
+                {
+                    transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, moveSpeed * Time.deltaTime);
+                }
             }
 
-            // On collision with a projectile tag, fetch the projectile.damageInt 
+            int randInt = Random.Range(0, 10);
+            if (randInt < 5)
+            {
+                Instantiate(meleeMinion, minionSpawnArea.transform.position, minionSpawnArea.transform.rotation);
 
-        }
-        if (pinkOneHealth < 333 && pinkOneHealth > 0)
-        {
+            }
+            else 
+            {
+                Instantiate(rangedMinion, minionSpawnArea.transform.position, minionSpawnArea.transform.rotation);
+            }
             // Also spawn minions
         }
-        if (pinkOneHealth <= 0)   
+        if (pinkOneHealth <= 0)
         {
-
+            // Die
+            Destroy(gameObject);
+        }
+    }
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag=="projectile")
+        {
+            PinkOneDamage(1);
         }
     }
 }

@@ -12,6 +12,8 @@ TagManager:
   - portal
   - weapon_bow
   - speedupitem
+  - boss
+  - projectile
   layers:
   - Default
   - TransparentFX
