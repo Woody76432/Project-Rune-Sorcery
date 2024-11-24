@@ -20,18 +20,20 @@ public class PinkOneAI : MonoBehaviour
     void Start()
     {
         moveSpeed = 2;
+        player = GameObject.FindWithTag("player");
     }
 
     public void Damage(int damage)
     {
         pinkOneHealth-=damage;
-        Debug.Log(pinkOneHealth.ToString());
     }
 
 
     // Update is called once per frame
     void Update()
     {
+        // --------------------------- Phase 1 --------------------- //
+
         if (pinkOneHealth>=66)
         {
             moveSpeed = 3;
@@ -45,6 +47,8 @@ public class PinkOneAI : MonoBehaviour
             }
 
         }
+
+        // --------------------------- Phase 2 --------------------- //
         if (pinkOneHealth > 33 && pinkOneHealth < 66)
         {
             // Wizard type AI, move away and shoot
@@ -53,20 +57,30 @@ public class PinkOneAI : MonoBehaviour
             Vector2 direction = player.transform.position - transform.position;
 
             // If the player is within a 10 unit range :
-            if (distance>0&&distance<10)
+            if (distance>0&&distance<15)
             {
                 // If within range AND too close :
-                if (distance > 0 && distance < 3)
+                if (distance > 0 && distance < 5)
                 {
                     transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, -moveSpeed * Time.deltaTime);
                 }
                 // If within range AND too far :
-                if (distance > 4 &&distance < 10)
+                if (distance > 5 &&distance < 15)
                 {
                     transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, moveSpeed * Time.deltaTime);
                 }
+                if (distance > 5 &&distance < 10)
+                {
+                    if(fireRate <= 0)
+                    {
+                        Instantiate(projectile, projectileSpawnArea.transform.position, projectileSpawnArea.transform.rotation);
+                        fireRate = 1;
+                    }
+                }
             }
         }
+
+        // --------------------------- Phase 3 --------------------- //
         if (pinkOneHealth < 33 && pinkOneHealth > 0)
         {
             moveSpeed = 4;
@@ -110,7 +124,8 @@ public class PinkOneAI : MonoBehaviour
             // Die
             Destroy(gameObject);
         }
-        minionSpawnCooldown-=Time.deltaTime;    
+        minionSpawnCooldown-=Time.deltaTime;   
+        fireRate-=Time.deltaTime;
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {

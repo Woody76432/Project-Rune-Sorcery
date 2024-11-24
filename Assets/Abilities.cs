@@ -98,7 +98,6 @@ public class Abilities : MonoBehaviour
             if (ability1Cooldown < -75f)
             {
                 ability1Cooldown = -75f;
-
             }
         }
 

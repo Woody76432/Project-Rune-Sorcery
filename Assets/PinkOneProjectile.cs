@@ -9,6 +9,11 @@ public class PinkOneProjectile : MonoBehaviour
     public GameObject player;
     public float distance;
 
+    private void Start()
+    {
+        player = GameObject.FindWithTag("player");
+    }
+
     // Update is called once per frame
     void Update()
     {

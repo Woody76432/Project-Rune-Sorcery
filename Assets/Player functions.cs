@@ -85,9 +85,6 @@ public class Player : MonoBehaviour
         {
             if (iFrames==0)
             {
-                //Damage();
-                iFramesStart();
-
                 // For debugging the Health and Damage
                 Debug.Log("After damage, iFrames started and the Health is " + playerCurrentHealth.ToString());
 
@@ -95,9 +92,19 @@ public class Player : MonoBehaviour
                 Damage(3);
             }
         }
-        if (collision.gameObject.tag =="enemyProjectile")
+        if (collision.gameObject.tag =="projectile")
         {
-            Damage(1);
+            if (iFrames == 0)
+            {
+                Damage(1);
+            }
+        }
+        if (collision.gameObject.tag =="hazard")
+        {
+            if (iFrames==0)
+            {
+                Damage(2);
+            }
         }
     }
 
@@ -118,6 +125,7 @@ public class Player : MonoBehaviour
     public void Damage(int damage)
     {
         playerCurrentHealth -= damage;
+        iFramesStart();
         Debug.Log("Health has changed to "+playerCurrentHealth.ToString());
         SetScore(-15);
         if (playerCurrentHealth <= 0)
@@ -173,6 +181,7 @@ public class Player : MonoBehaviour
         speedX = Input.GetAxisRaw("Horizontal") * moveSpeed;
         speedY = Input.GetAxisRaw("Vertical") * moveSpeed;
         player.velocity = new Vector2(speedX, speedY);
+
 
 
 
