@@ -15,6 +15,7 @@ public class ItemDropping : MonoBehaviour
     public GameObject bow;
     public GameObject rifle;
     public GameObject rocketL;
+    public GameObject scoreCoin;
 
     public static GameObject staticHealthUpItem;
     public static GameObject staticHealingItem;
@@ -22,6 +23,8 @@ public class ItemDropping : MonoBehaviour
     public static GameObject staticBow;
     public static GameObject staticRifle;
     public static GameObject staticRocketL;
+    public static GameObject staticscoreCoin;
+
     // I HONESTLY DO NOT KNOW WHY BUT FOR SOME GODDAMN REASON YOU CANT USE A STATIC GAME OBJECT IN THE INSPECTOR EVEN IF ITS PUBLIC SO YOU HAVE TO ON START ASSIGN THE STATIC VERSION OF THE GAMEOBJECT WITH THE ASSIGNED PUBLIC ONE
     // KILL ME
     public void Start()

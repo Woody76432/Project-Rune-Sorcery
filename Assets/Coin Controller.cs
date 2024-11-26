@@ -18,14 +18,11 @@ public class RotateCoin : MonoBehaviour
     void Update()
     {
         coinTimer = coinTimer + Time.deltaTime*1;
-        if (coinTimer >= 0.3f)
+        if (coinTimer >= 0.02f)
         {
-            angleY += 2;
-            if (angleY >= 179)
-            {
-                angleY = -179;
-            }
+            angleY += 5;
             coin.transform.Rotate(0, angleY, 0);
+            angleY = 0;
             coinTimer = 0.0f;
         }
         

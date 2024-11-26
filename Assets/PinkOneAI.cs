@@ -16,6 +16,7 @@ public class PinkOneAI : MonoBehaviour
     public float minionSpawnCooldown = 3;
     public GameObject meleeMinion;
     public GameObject rangedMinion;
+    public GameObject portal;
 
     void Start()
     {
@@ -74,7 +75,7 @@ public class PinkOneAI : MonoBehaviour
                     if(fireRate <= 0)
                     {
                         Instantiate(projectile, projectileSpawnArea.transform.position, projectileSpawnArea.transform.rotation);
-                        fireRate = 1;
+                        fireRate = 0.4f;
                     }
                 }
             }
@@ -101,6 +102,11 @@ public class PinkOneAI : MonoBehaviour
                     transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, moveSpeed * Time.deltaTime);
                 }
             }
+            if (fireRate <= 0)
+            {
+                Instantiate(projectile, projectileSpawnArea.transform.position, projectileSpawnArea.transform.rotation);
+                fireRate = 0.4f;
+            }
             if (minionSpawnCooldown<=0)
             {
                 int randInt = Random.Range(0, 10);
@@ -122,6 +128,7 @@ public class PinkOneAI : MonoBehaviour
         if (pinkOneHealth <= 0)
         {
             // Die
+            portal.SetActive(true);
             Destroy(gameObject);
         }
         minionSpawnCooldown-=Time.deltaTime;   
