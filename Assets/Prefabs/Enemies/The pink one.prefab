@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 7834708663004170031}
   m_Layer: 0
   m_Name: The pink one
-  m_TagString: Untagged
+  m_TagString: boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -244,6 +244,7 @@ MonoBehaviour:
   minionSpawnCooldown: 3
   meleeMinion: {fileID: 498402625360118637, guid: 65f51672bfb7599489703e97a0ac3d66, type: 3}
   rangedMinion: {fileID: 2440794099140244534, guid: 8e4325963c539a84088a05cd70649fc2, type: 3}
+  portal: {fileID: 0}
 --- !u!50 &7834708663004170031
 Rigidbody2D:
   serializedVersion: 4
