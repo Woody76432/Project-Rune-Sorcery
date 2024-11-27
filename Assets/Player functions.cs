@@ -15,13 +15,14 @@ public class Player : MonoBehaviour
     public GameObject projectile;
     public static int score = 0;
     public Rigidbody2D player;
+    public static Vector3 playerPosition;
+    public static Quaternion playerRotation;
     public float moveSpeed = 6.50f;
     float speedX, speedY;
 
     // Healthbar Text stuff
     [SerializeField]
     private TMP_Text _text;
-
 
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -163,6 +164,14 @@ public class Player : MonoBehaviour
     {
         return score;
     }
+    public static Vector3 GetPosition()
+    {
+        return playerPosition;
+    }
+    public static Quaternion GetRotation()
+    {
+        return playerRotation;
+    }
 
 
 
@@ -182,7 +191,8 @@ public class Player : MonoBehaviour
         speedY = Input.GetAxisRaw("Vertical") * moveSpeed;
         player.velocity = new Vector2(speedX, speedY);
 
-
+        playerPosition = player.transform.position;
+        playerRotation = player.transform.rotation;
 
 
 

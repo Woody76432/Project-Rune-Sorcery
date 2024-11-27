@@ -13,7 +13,7 @@ public class Abilities : MonoBehaviour
     public static float ability2CooldownMultiplier = 2;
     public static float ability3CooldownMultiplier = 3;
 
-    public GameObject grenade;
+    public GameObject ekkoTimeWatch;
 
     // Setters for other scripts to influence cooldown timers -----------------------------------------------------------------------------------------------------------------
     public static void SetAbility1CooldownMultiplier(int multiplier)
@@ -85,6 +85,7 @@ public class Abilities : MonoBehaviour
 
             if (ability3Cooldown ==-75f)
             {
+                Instantiate(ekkoTimeWatch, Player.GetPosition(),Player.GetRotation());
                 ability3Cooldown = 0f;
             }
         }

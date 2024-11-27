@@ -1,0 +1,160 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1005299579795541792
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 569458315090348961, guid: 004bd781f7acf744c9f7eac28cdb1df9, type: 3}
+      propertyPath: m_Name
+      value: T-800 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 839431738272464329, guid: 004bd781f7acf744c9f7eac28cdb1df9, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 839431738272464329, guid: 004bd781f7acf744c9f7eac28cdb1df9, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 1309270177527379022, guid: 004bd781f7acf744c9f7eac28cdb1df9, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1309270177527379022, guid: 004bd781f7acf744c9f7eac28cdb1df9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1309270177527379022, guid: 004bd781f7acf744c9f7eac28cdb1df9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -248.57071
+      objectReference: {fileID: 0}
+    - target: {fileID: 1309270177527379022, guid: 004bd781f7acf744c9f7eac28cdb1df9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.8497148
+      objectReference: {fileID: 0}
+    - target: {fileID: 1309270177527379022, guid: 004bd781f7acf744c9f7eac28cdb1df9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1309270177527379022, guid: 004bd781f7acf744c9f7eac28cdb1df9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1309270177527379022, guid: 004bd781f7acf744c9f7eac28cdb1df9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1309270177527379022, guid: 004bd781f7acf744c9f7eac28cdb1df9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1309270177527379022, guid: 004bd781f7acf744c9f7eac28cdb1df9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1309270177527379022, guid: 004bd781f7acf744c9f7eac28cdb1df9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1309270177527379022, guid: 004bd781f7acf744c9f7eac28cdb1df9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1309270177527379022, guid: 004bd781f7acf744c9f7eac28cdb1df9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1813440205445068165, guid: 004bd781f7acf744c9f7eac28cdb1df9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 107b9ab35c7fb4e4cb1436210ec20b7f, type: 3}
+    - target: {fileID: 2314756358428174847, guid: 004bd781f7acf744c9f7eac28cdb1df9, type: 3}
+      propertyPath: meleeMinion
+      value: 
+      objectReference: {fileID: 4114959221151631245, guid: b0389919157925e45b31817d64c6f990, type: 3}
+    m_RemovedComponents:
+    - {fileID: 839431738272464329, guid: 004bd781f7acf744c9f7eac28cdb1df9, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 569458315090348961, guid: 004bd781f7acf744c9f7eac28cdb1df9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7652538335831559303}
+  m_SourcePrefab: {fileID: 100100000, guid: 004bd781f7acf744c9f7eac28cdb1df9, type: 3}
+--- !u!1 &726370324576879745 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 569458315090348961, guid: 004bd781f7acf744c9f7eac28cdb1df9, type: 3}
+  m_PrefabInstance: {fileID: 1005299579795541792}
+  m_PrefabAsset: {fileID: 0}
+--- !u!60 &7652538335831559303
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726370324576879745}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.96, y: 0.96}
+    newSize: {x: 0.64, y: 0.64}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.14999999, y: -0.35}
+      - {x: 0.14474487, y: 0.026218176}
+      - {x: 0.47, y: 0.03}
+      - {x: 0.47, y: 0.17999999}
+      - {x: 0.45999998, y: 0.19}
+      - {x: 0.14999999, y: 0.18604562}
+      - {x: 0.14, y: 0.42}
+      - {x: 0.12, y: 0.44}
+      - {x: -0.12, y: 0.44}
+      - {x: -0.14, y: 0.42}
+      - {x: -0.14, y: 0.21}
+      - {x: -0.14018188, y: 0.17245452}
+      - {x: -0.47, y: 0.17}
+      - {x: -0.47, y: 0.04}
+      - {x: -0.45999998, y: 0.02}
+      - {x: -0.16, y: 0.02}
+      - {x: -0.14, y: -0.35999998}
+      - {x: -0.17999999, y: -0.37}
+      - {x: -0.19999999, y: -0.39}
+      - {x: -0.19999999, y: -0.48}
+      - {x: 0.19999999, y: -0.48}
+      - {x: 0.19999999, y: -0.39}
+      - {x: 0.17999999, y: -0.37}
+  m_UseDelaunayMesh: 0

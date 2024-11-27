@@ -11,6 +11,7 @@ public class RotateTowardsPlayer : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("player");
+        playerTransform = player.transform;
     }
 
     // Update is called once per frame
@@ -22,7 +23,7 @@ public class RotateTowardsPlayer : MonoBehaviour
         float rotationZ = Mathf.Atan2(rotationDifference.y, rotationDifference.x) * Mathf.Rad2Deg;
         //Rotates the enemy to follow the rotationZ, the 2 floats would be for 3D
         //Plus 90 to change the orientation centering
-        this.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ + 90);
+        this.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
     }
 }
 
