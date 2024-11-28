@@ -13,7 +13,10 @@ public class Abilities : MonoBehaviour
     public static float ability2CooldownMultiplier = 2;
     public static float ability3CooldownMultiplier = 3;
 
+    public GameObject playerProjectileSpawn;
+
     public GameObject ekkoTimeWatch;
+    public GameObject fusionOrb;
 
     // Setters for other scripts to influence cooldown timers -----------------------------------------------------------------------------------------------------------------
     public static void SetAbility1CooldownMultiplier(int multiplier)
@@ -68,6 +71,8 @@ public class Abilities : MonoBehaviour
         {
             if (ability1Cooldown==-75f)
             {
+
+                Instantiate(fusionOrb, playerProjectileSpawn.transform.position, playerProjectileSpawn.transform.rotation);
                 ability1Cooldown = 0f;
             }
         }
