@@ -7,8 +7,8 @@ using TMPro;
 public class Player : MonoBehaviour
 {
     //Player stats Section
-    public  int playerMaxHealth = 10;
-    public  int playerCurrentHealth = 5;
+    public int playerMaxHealth = 10;
+    public static int playerCurrentHealth = 5;
     public  int playerDamage = 1;
     public  float iFrames = 0;
     public  float iFramesMax = 1;
@@ -171,6 +171,14 @@ public class Player : MonoBehaviour
     public static Quaternion GetRotation()
     {
         return playerRotation;
+    }
+    public static int GetHealth()
+    {
+        return playerCurrentHealth;
+    }
+    public static void SetHealth(int healthToSet)
+    {
+        playerCurrentHealth = healthToSet;
     }
 
 

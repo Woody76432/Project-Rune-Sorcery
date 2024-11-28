@@ -43,6 +43,10 @@ public class RoomDoorTrigger : MonoBehaviour
         {
             enemiesInTrigger = false;
         }
+        if (collision.gameObject.tag == "player")
+        {
+            playerInTrigger = false;
+        }
     }
 
     void Update()
@@ -50,6 +54,13 @@ public class RoomDoorTrigger : MonoBehaviour
         if (enemiesInTrigger==false) 
         {
             enemyTimeOutTrigger += Time.deltaTime;
+        }
+        if (playerInTrigger==false&&triggerActivated == true)
+        {
+            door1.SetActive(false);
+            door2.SetActive(false);
+            door3.SetActive(false);
+            triggerActivated = false;
         }
         if (enemiesInTrigger == false&&enemyTimeOutTrigger>1)
         {
