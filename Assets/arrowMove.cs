@@ -35,6 +35,12 @@ public class arrowMove : MonoBehaviour
             Instantiate(explosionEffect, transform.position, transform.rotation);
             Destroy(gameObject);
         }
+        if (collision.gameObject.tag=="projectile")
+        {
+            Destroy(collision.gameObject);
+            Instantiate(explosionEffect, transform.position, transform.rotation);
+            Destroy(gameObject);
+        }
         else
         {
             Instantiate(explosionEffect, transform.position, transform.rotation);

@@ -19,8 +19,12 @@ public class CollisionController : MonoBehaviour
             ItemDropping.SpawnItem(transform.position, defaultRotation);
             Player.SetScore(250);
         }
+        if (collision.gameObject.tag=="projectile")
+        {
+            Destroy(collision.gameObject); 
+            Destroy(gameObject);
+        }
         else
-
         {
             //Destroys the projectile if it collides with any unspecified collision boxes as a failsafe ( Includes Walls )
             Destroy(projectile);

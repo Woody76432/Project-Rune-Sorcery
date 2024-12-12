@@ -48,6 +48,11 @@ public class rocketMove : MonoBehaviour
             Destroy(collision.gameObject);
             Instantiate(explosionEffect, transform.position, transform.rotation);
         }
+        if (collision.gameObject.tag=="projectile")
+        {
+            Destroy(collision.gameObject);
+            Instantiate(explosionEffect, transform.position, transform.rotation);
+        }
         else
         {
             Instantiate(explosionEffect, transform.position, transform.rotation);
