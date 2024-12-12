@@ -32,8 +32,4 @@ public class PinkOneProjectile : MonoBehaviour
             Debug.Log("Projectile Destroyed!");
         }
     }
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        Destroy(gameObject);
-    }
 }

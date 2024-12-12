@@ -26,7 +26,7 @@ public class ItemDropping : MonoBehaviour
     public static GameObject staticscoreCoin;
 
     // I HONESTLY DO NOT KNOW WHY BUT FOR SOME GODDAMN REASON YOU CANT USE A STATIC GAME OBJECT IN THE INSPECTOR EVEN IF ITS PUBLIC SO YOU HAVE TO ON START ASSIGN THE STATIC VERSION OF THE GAMEOBJECT WITH THE ASSIGNED PUBLIC ONE
-    // KILL ME
+
     public void Start()
     {   
         staticHealthUpItem = healthUpItem;

@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
     private TMP_Text _text;
 
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
 
         //--------------------------------------------------------------------------Item Healing---------------------------------------------------------------------------//
@@ -98,6 +98,7 @@ public class Player : MonoBehaviour
             if (iFrames == 0)
             {
                 Damage(1);
+                Destroy(collision.gameObject);
             }
         }
         if (collision.gameObject.tag =="hazard")

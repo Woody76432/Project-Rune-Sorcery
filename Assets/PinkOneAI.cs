@@ -122,8 +122,6 @@ public class PinkOneAI : MonoBehaviour
 
                 }
             }
-
-            // Also spawn minions
         }
         if (pinkOneHealth <= 0)
         {

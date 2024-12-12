@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Abilities : MonoBehaviour
@@ -14,6 +15,10 @@ public class Abilities : MonoBehaviour
     public static float ability3CooldownMultiplier = 3;
 
     public GameObject playerProjectileSpawn;
+
+    public GameObject bluePortal;
+    public GameObject orangePortal;
+    public bool portalFired;
 
     public GameObject ekkoTimeWatch;
     public GameObject fusionOrb;
@@ -81,7 +86,18 @@ public class Abilities : MonoBehaviour
         {
             if (ability2Cooldown ==-75f)
             {
-                ability2Cooldown = 0f;
+                if (portalFired == true)
+                {
+                    Instantiate(orangePortal, playerProjectileSpawn.transform.position, playerProjectileSpawn.transform.rotation);
+                    ability2Cooldown = 0f;
+                    portalFired = false;
+                }
+
+                if ( portalFired == false&&ability2Cooldown==-75f)
+                {
+                    Instantiate(bluePortal, playerProjectileSpawn.transform.position, playerProjectileSpawn.transform.rotation);
+                    portalFired = true;
+                }
             }
         }
 
